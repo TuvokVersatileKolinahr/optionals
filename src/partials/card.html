@@ -1,0 +1,12 @@
+        <div data-as-sortable-item-handle class="issue">
+          <div class="issue-head">
+            <h2>
+              <a href="{{ gitissue.html.url }}">#{{ gitissue.number }} {{ gitissue.title }}</a>
+            </h2>
+            <img src="{{ gitissue.user.avatar.url }}">
+          </div>
+          <div btf-markdown="gitissue.body" class="issue-body"></div><hr>
+          <div class="issue-details">
+            <span class="issue-date">{{ gitissue.createdAt | date:'dd MMM yyyy HH:mm' }}</span>
+          </div>
+        </div>

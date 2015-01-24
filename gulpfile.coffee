@@ -159,7 +159,7 @@ gulp.task 'visuals', ->
 gulp.task 'watch', ->
   gulp.watch "src/scss/*.scss", ['css']
   gulp.watch "src/**/*.js", ['scripts', 'lint']
-  gulp.watch "src/**/*.coffee", ['app', 'clint']
+  gulp.watch "src/**/*.coffee", ['scripts', 'clint']
   gulp.watch "src/**/*.html", ['html']
   #gulp.watch 'src/img/**/*', ['images']
 

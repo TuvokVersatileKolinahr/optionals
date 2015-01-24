@@ -2,19 +2,20 @@
 IndexController. Responsible for the index view.
 ###
 app.controller "IndexController", ($scope, $route, UserData, GitHubUtils) ->
-  $scope.whatsMyName = "Testable content"
+  $scope.whatsMyName = "Git issues"
   $scope.routename = $route.current.name
   $scope.items = UserData.users
   $scope.issues = []
   $scope.dragControlListeners = {
     #override to determine drag is allowed or not. default is true.
-    accept: (sourceItemHandleScope, destSortableScope) -> return boolean
-    itemMoved: (event) -> { 
-      console.log "heheh"
-    },
-    orderChanged: (event) -> { 
-      console.log "heheh"
-    },
+    accept: (sourceItemHandleScope, destSortableScope) ->
+      return boolean
+    itemMoved: (event) ->
+      console.log 'itemMoved'
+    ,
+    orderChanged: (event) ->
+      console.log 'orderChanged'
+    ,
     containment: '#board' #optional param.
   }
 

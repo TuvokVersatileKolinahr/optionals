@@ -1,15 +1,10 @@
 <header shared-header></header>
 <section class="content">
   <div class="issue-list">
-    <ul data-as-sortable="board.dragControlListeners" data-ng-model="items">
-      <li data-ng-repeat="gitissue in issues" data-as-sortable-item>
-        <div data-as-sortable-item-handle class="issue">
-          <div class="issue-number">
-            <h2>#{{ gitissue.number }}</h2>
-            <img src="{{ gitissue.user.avatar.url }}">
-          </div>
-          <div btf-markdown="gitissue.body"></div>
-        </div>
+    <ul data-as-sortable="board.dragControlListeners" data-ng-model="issues">
+      <li data-ng-repeat="gitissue in issues"
+          data-as-sortable-item
+          ng-include="'partials/card.html'">
       </li>
     </ul>
   </div>

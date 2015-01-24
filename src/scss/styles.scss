@@ -376,6 +376,13 @@ footer {
 
 .as-sortable-drag {
     opacity: .8;
+    list-style-type: none;
+    img {
+      visibility: hidden;
+    }
+    li {
+      height: 100px;
+    }
 }
 
 .as-sortable-hidden {
@@ -386,7 +393,7 @@ footer {
   .issue {
     min-height: 50px;
     // padding: 4px;
-    .issue-number {
+    .issue-head {
       padding: 4px;
       border-radius: 10px 10px 0 0;
       border-bottom: 1px dashed #f0f0f0;
@@ -399,6 +406,14 @@ footer {
         width: 26px;
         border: none;
       }
+    }
+    .issue-body {
+      padding: 4px;
+    }
+    .issue-details {
+      padding: 4px;
+      margin-left: auto;
+      margin-right: 0;
     }
     h1 {
       font-style: italic;

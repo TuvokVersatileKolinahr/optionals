@@ -1,6 +1,7 @@
 app.factory 'GitHubUtils', ->
+# see: http://philschatz.com/2014/05/25/octokat/
   getIssues: (repo) ->
-    # see: http://philschatz.com/2014/05/25/octokat/
+    # repo is defined as:   $scope.repo = 'tuvokki/ipsaver'
     #put your oauth token here, create one here: https://github.com/settings/applications#personal-access-tokens
     octo = new Octokat { token: "__OAUTH_TOKEN__" }
     # cb = (err, val) ->
@@ -20,4 +21,4 @@ app.factory 'GitHubUtils', ->
     #   return issues
 
     REPO = octo.repos(repo)
-    REPO.issues.fetch()
+    REPO.issues.fetch({state:'all'})
