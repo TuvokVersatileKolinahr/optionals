@@ -380,3 +380,33 @@ footer {
 
 .as-sortable-hidden {
 }
+
+.issue-list {
+  width: 500px;
+  .issue {
+    min-height: 50px;
+    // padding: 4px;
+    .issue-number {
+      padding: 4px;
+      border-radius: 10px 10px 0 0;
+      border-bottom: 1px dashed #f0f0f0;
+      background: #c0c0c0;
+      img {
+        position: relative;
+        top: -21px;
+        float: right;
+        height: 26px;
+        width: 26px;
+        border: none;
+      }
+    }
+    h1 {
+      font-style: italic;
+      font-size: 110%;
+    }
+    img {
+      border: 5px solid white;
+      width: 450px;
+    }
+  }
+}

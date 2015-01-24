@@ -1,6 +1,6 @@
 # This is the okkistan app
 app = angular.module 'okkiStan',
-  ['ngRoute', 'ngResource', 'ui.sortable']
+  ['ngRoute', 'ngResource', 'ui.sortable', 'ngSanitize', 'btford.markdown']
 
 app.config [
   '$compileProvider',
