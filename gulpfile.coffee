@@ -51,7 +51,14 @@ gulp.task 'vendor', ->
   underscore.each bowerFile.dependencies, (version, name) ->
     dir = bowerDir + '/' + name + '/'
     bowerDepFile = require dir + 'bower.json'
-    file = dir + bowerDepFile.main
+    if debug_opts.verbose
+      console.log bowerDepFile.main
+      console.log dir
+    if typeof bowerDepFile.main == 'object'
+      files = bowerDepFile.main
+      file = dir + files[0]
+    else
+      file = dir + bowerDepFile.main
     minfile = file.substring(0, file.length - 3) + '.min.js'
     if debug_opts.verbose
       console.log "file", file
