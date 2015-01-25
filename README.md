@@ -3,7 +3,7 @@ Optionals
 
 This is optional, also called an optional illusion. And also something that is but might not be.
 
-**installation**
+### installation
 
 Download sources
 
@@ -19,7 +19,7 @@ run:
 
 go!
 
-**production use**
+##### 'production use'
 
 Download sources
 
@@ -35,9 +35,16 @@ go!
 **REMINDER**
 This is development software. It is not intended to use in production.
 
-**cleaning**
+#####cleaning
 
 run:
 
 	gulp clean
 
+
+### For inspiration
+Components used:
+
+* [NG Sortable](https://github.com/a5hik/ng-sortable)
+* [Octokat.js](https://github.com/philschatz/octokat.js)
+* [Issues | GitHub API](https://developer.github.com/v3/issues/)
