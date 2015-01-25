@@ -390,6 +390,8 @@ footer {
 
 .issue-list {
   width: 500px;
+  display: inline-block;
+  vertical-align: top;
   .issue {
     min-height: 50px;
     // padding: 4px;
