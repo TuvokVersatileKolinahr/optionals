@@ -30,7 +30,7 @@ gulp.task 'browser-sync', ->
                     }
 
 # Start the live reload server. Live reload will be triggered when a file in the `dist` folder or the index.html changes. This will add a live-reload script to the page, which makes it all happen.
-gulp.task 'live-reload', ['watch'], ->
+gulp.task 'live-reload', ['watch', 'app'], ->
   # first delete the index.html
   # from the dist folder as we will copy it later
   # del ['dist/index.html']
