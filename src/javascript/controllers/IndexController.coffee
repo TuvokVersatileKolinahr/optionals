@@ -16,11 +16,11 @@ app.controller "IndexController", ($scope, $route, $filter, UserData, GitHubUtil
 
   $scope.issueSortOptions = {
     itemMoved: (event) ->
-      console.log 'itemMoved'
+      console.log 'itemMoved', event
       return true
     ,
     orderChanged: (event) ->
-      console.log 'orderChanged'
+      console.log 'orderChanged', event
       return true
   }
 
