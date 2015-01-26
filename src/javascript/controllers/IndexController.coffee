@@ -1,30 +1,40 @@
 ###*
 IndexController. Responsible for the index view.
 ###
-app.controller "IndexController", ($scope, $route, UserData, GitHubUtils) ->
+app.controller "IndexController", ($scope, $route, $filter, UserData, GitHubUtils) ->
   $scope.whatsMyName = "Git issues"
   $scope.routename = $route.current.name
   $scope.items = UserData.users
-  $scope.issues = []
-  $scope.dragControlListeners = {
-    #override to determine drag is allowed or not. default is true.
-    accept: (sourceItemHandleScope, destSortableScope) ->
-      return boolean
+  # use a model (or multiple) for this
+  $scope.board = {}
+  $scope.board.columns = [
+    { name: 'Open issues', filter: 'open' },
+    { name: 'Issues in progress', filter: 'progress' },
+    { name: 'Closed issues', filter: 'closed' }
+  ]
+  $scope.board.issues = []
+
+  $scope.issueSortOptions = {
     itemMoved: (event) ->
       console.log 'itemMoved'
+      return true
     ,
     orderChanged: (event) ->
       console.log 'orderChanged'
-    ,
-    containment: '#board' #optional param.
+      return true
   }
 
   $scope.repo = 'tuvokki/ipsaver'
 
   issueList = GitHubUtils.getIssues($scope.repo)
   issueList.then (list) ->
-    console.log "Fetched issues: ", list
-    $scope.issues = list
+    # console.log "Fetched issues: ", list
+    #angular.forEach($scope.board.columns, function(v,k){this.push(v.name)}, tst)
+    angular.forEach $scope.board.columns,
+      (v,k) ->
+        v.issues = $filter('filter')(list, { state : v.filter })
+        return
+    console.log $scope.board
     $scope.$apply()
     return
 

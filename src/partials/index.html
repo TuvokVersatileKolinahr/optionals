@@ -1,19 +1,10 @@
 <header shared-header></header>
 <section class="content">
-  <div class="issue-list">
-    <div>Open issues</div>
-    <ul data-as-sortable="board.dragControlListeners" data-ng-model="issues">
-      <li data-ng-repeat="gitissue in issues | filter: { state : 'open' }"
-          data-as-sortable-item
-          ng-include="'partials/card.html'">
-      </li>
-    </ul>
-  </div>
-  <div class="issue-list">
-    <div>Closed issues</div>
-    <ul data-as-sortable="board.dragControlListeners" data-ng-model="issues">
-      <li data-ng-repeat="gitissue in issues | filter: { state : 'closed' }"
-          data-as-sortable-item
+  <div class="issue-list" ng-repeat="column in board.columns">
+    <div>{{ column.name }}</div>
+    <ul as-sortable="issueSortOptions" ng-model="column.issues">
+      <li ng-repeat="gitissue in column.issues"
+          as-sortable-item
           ng-include="'partials/card.html'">
       </li>
     </ul>
