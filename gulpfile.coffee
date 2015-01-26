@@ -36,6 +36,12 @@ debug_opts.verbose = nconf.get('v')? || nconf.get('verbose')?
 # Also require the webserver and live-reload related tasks
 require './gulp-serve.coffee'
 
+#error handling
+handleError = (err) ->
+  console.log err.toString
+  this.emit 'end'
+  return
+
 # Create the prerequisites for the actual app
 # 
 # depends on:
@@ -103,6 +109,7 @@ gulp.task 'app', ->
            ]
     .pipe plumber()
     .pipe gulpif /[.]coffee$/, coffee({bare: true})
+    .on('error', handleError)
     .pipe replace '__OAUTH_TOKEN__', nconf.get 'oauth_token'
     .pipe concat('app.js')
     .pipe gulp.dest 'dist/static/js'
