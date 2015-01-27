@@ -389,12 +389,25 @@ footer {
 }
 
 .issue-list {
-  width: 500px;
+  width: 33%;
   display: inline-block;
   vertical-align: top;
+  .column-title {
+    margin-bottom: 8px;
+    color: #3F4751;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .issue {
     min-height: 50px;
-    // padding: 4px;
+    color: #3F4751;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
     .issue-head {
       padding: 4px;
       border-radius: 10px 10px 0 0;
@@ -407,6 +420,17 @@ footer {
         height: 26px;
         width: 26px;
         border: none;
+      }
+      a {
+        text-decoration: none;
+        color: #3F4751;
+        font-family: 'Open Sans';
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
     .issue-body {

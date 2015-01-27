@@ -1,7 +1,7 @@
 <header shared-header></header>
 <section class="content">
   <div class="issue-list" ng-repeat="column in board.columns">
-    <div>{{ column.name }}</div>
+    <div class="column-title">{{ column.name }}</div>
     <ul as-sortable="issueSortOptions" ng-model="column.issues">
       <li ng-repeat="gitissue in column.issues"
           as-sortable-item
