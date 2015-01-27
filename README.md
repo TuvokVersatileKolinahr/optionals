@@ -11,7 +11,7 @@ run:
 
 	npm install
 	npm install -g bower
-        bower install
+    bower install
     
   Create a github oauth token @ [Personal access tokens](https://github.com/settings/applications) and copy the token that is generated (e.g. a2pzaGZhaXJzZmprYnZhZmdobHNha2pmaGxrYWpo). Then:
 	
