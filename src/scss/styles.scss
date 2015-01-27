@@ -390,6 +390,8 @@ footer {
 
 .issue-list {
   width: 33%;
+  height: 100%;
+  overflow-x: hidden;
   display: inline-block;
   vertical-align: top;
   .column-title {
@@ -402,6 +404,10 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+  ul {
+    height: 95%;
+    overflow-x: auto;
   }
   .issue {
     min-height: 50px;
