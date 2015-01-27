@@ -14,6 +14,9 @@ app.controller("IndexController", function($scope, $route, $filter, GitHubUtils)
       name: 'Issues in progress',
       filter: 'progress'
     }, {
+      name: 'Ready for testing',
+      filter: 'testing'
+    }, {
       name: 'Closed issues',
       filter: 'closed'
     }
