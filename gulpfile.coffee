@@ -101,7 +101,7 @@ gulp.task 'vendor', ->
 
 # app task - concatenates all application code into app.js
 gulp.task 'app', ->
-  gulp.src ['src/javascript/app.coffee',
+  gulp.src ['src/javascript/app.js',
             'src/javascript/directives/**/*',
             'src/javascript/services/**/*',
             'src/javascript/controllers/**/*',
