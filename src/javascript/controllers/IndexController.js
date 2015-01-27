@@ -29,7 +29,7 @@ app.controller("IndexController", function($scope, $route, $filter, GitHubUtils)
       return true;
     }
   };
-  $scope.repo = 'tuvokki/ipsaver';
+  $scope.repo = 'TuvokVersatileKolinahr/optionals';
   issueList = GitHubUtils.getIssues($scope.repo);
   issueList.then(function(list) {
     angular.forEach($scope.board.columns, function(v, k) {
