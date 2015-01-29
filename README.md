@@ -4,13 +4,13 @@ Optionals
 This is optional, also called an optional illusion. And also something that is but might not be.
 
 ### installation
+Prerequisite is a working global installation of bower (`(sudo) npm install -g bower`) and gulp (`(sudo) npm install -g gulp`)
 
 Download sources
 
 run:
 
 	npm install
-	npm install -g bower
     bower install
     
   Create a github oauth token @ [Personal access tokens](https://github.com/settings/applications) and copy the token that is generated (e.g. a2pzaGZhaXJzZmprYnZhZmdobHNha2pmaGxrYWpo). Then:
