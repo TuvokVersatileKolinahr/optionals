@@ -1,11 +1,13 @@
 /**
 IndexController. Responsible for the index view.
  */
-app.controller("IndexController", function($scope, $route, $filter, GitHubUtils) {
-  var issueList;
+app.controller("IndexController", function($scope, $route, $filter, $firebase, GitHubUtils) {
+  var issueList, ref, sync;
   $scope.whatsMyName = "Git issues";
   $scope.routename = $route.current.name;
+  $scope.repo = 'TuvokVersatileKolinahr/optionals';
   $scope.board = {};
+  $scope.board.issues = [];
   $scope.board.columns = [
     {
       name: 'Open issues',
@@ -21,7 +23,6 @@ app.controller("IndexController", function($scope, $route, $filter, GitHubUtils)
       filter: 'closed'
     }
   ];
-  $scope.board.issues = [];
   $scope.issueSortOptions = {
     itemMoved: function(event) {
       console.log('itemMoved', event);
@@ -32,7 +33,6 @@ app.controller("IndexController", function($scope, $route, $filter, GitHubUtils)
       return true;
     }
   };
-  $scope.repo = 'TuvokVersatileKolinahr/optionals';
   issueList = GitHubUtils.getIssues($scope.repo);
   issueList.then(function(list) {
     angular.forEach($scope.board.columns, function(v, k) {
@@ -50,5 +50,26 @@ app.controller("IndexController", function($scope, $route, $filter, GitHubUtils)
       $scope.issues = list;
       $scope.$apply();
     });
+  };
+  ref = new Firebase("https://optionals.firebaseio.com/");
+  sync = $firebase(ref);
+  $scope.data = sync.$asObject();
+  $scope.login = function() {
+    return ref.authWithOAuthPopup('github', function(error, authData) {
+      if (error) {
+        console.log('Login Failed!', error);
+        $scope.errormessage = error.code + ' ' + error.message;
+        $scope.$apply();
+      } else {
+        console.log('Authenticated successfully with payload:', authData);
+        $scope.displayName = authData.github.displayName;
+        delete $scope.errormessage;
+        $scope.$apply();
+      }
+    });
+  };
+  $scope.logout = function() {
+    ref.unauth;
+    delete $scope.displayName;
   };
 });

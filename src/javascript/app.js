@@ -1,6 +1,6 @@
 var app;
 
-app = angular.module('okkiStan', ['ngRoute', 'ngResource', 'ui.sortable', 'ngSanitize', 'btford.markdown']);
+app = angular.module('okkiStan', ['ngRoute', 'ngResource', 'ui.sortable', 'ngSanitize', 'btford.markdown', 'firebase']);
 
 app.config([
   '$routeProvider', function($routeProvider) {

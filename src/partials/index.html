@@ -1,5 +1,5 @@
 <header shared-header></header>
-<section class="content">
+<section class="content" ng-if="displayName">
   <div class="issue-list" ng-repeat="column in board.columns">
     <div class="column-title">{{ column.name }}</div>
     <ul as-sortable="issueSortOptions" ng-model="column.issues">
@@ -9,5 +9,8 @@
       </li>
     </ul>
   </div>
+</section>
+<section>
+  <button ng-click="login">Login</button>
 </section>
 <footer shared-footer></footer>
