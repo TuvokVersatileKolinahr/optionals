@@ -10,7 +10,10 @@
     </ul>
   </div>
 </section>
-<section class="content" ng-if="!displayName">
-  <button ng-click="login()">Login</button>
+<section class="login" ng-if="!displayName">
+  <div class="box">
+    <h1>To use this software you must</h1>
+    <button ng-click="login()">Login</button>
+  </div>
 </section>
 <footer shared-footer></footer>
