@@ -54,6 +54,36 @@ header {
       color: #3F4751;
     }
   }
+  .right {
+    float: right;
+    margin-top: -26px;
+    padding-right: 84px;
+    .greet {
+      color: #3F4751;
+      font-family: 'Open Sans';
+      font-weight: 600; 
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+.login {
+  height: 100%;
+  padding-top: 40px;
+  margin-left: 40%;
+  .box {
+    h1 {
+      color: #3F4751;
+      font-family: 'Open Sans';
+      font-weight: 600; 
+      font-size: 16px;
+      line-height: 24px;
+      margin-left: 0    
+    }
+    button {
+      margin-left: 100px    
+    }
+  }
 }
 .content {
   height: 100%;
@@ -63,7 +93,7 @@ header {
   margin-left: 0;
   color: rgba(0, 0, 0, 1);
   overflow-y:auto;
-  padding-top: $header_height+10;
+  padding-top: $header_height + 10;
   padding-left: 8px;
   padding-bottom: $footer_height;
   @media screen and (max-width: $break-small) {
