@@ -1,38 +1,13 @@
 /**
 IndexController. Responsible for the index view.
  */
-app.controller("IndexController", function($scope, $route, $filter, $firebase, GitHubUtils) {
-  var issueList, ref, sync;
+app.controller("IndexController", function($scope, $route, $filter, $firebase, GitHubUtils, BoardUtils) {
+  var issueList, ref;
   $scope.whatsMyName = "Git issues";
   $scope.routename = $route.current.name;
   $scope.repo = 'TuvokVersatileKolinahr/optionals';
-  $scope.board = {};
-  $scope.board.issues = [];
-  $scope.board.columns = [
-    {
-      name: 'Open issues',
-      filter: 'open'
-    }, {
-      name: 'Issues in progress',
-      filter: 'progress'
-    }, {
-      name: 'Ready for testing',
-      filter: 'testing'
-    }, {
-      name: 'Closed issues',
-      filter: 'closed'
-    }
-  ];
-  $scope.issueSortOptions = {
-    itemMoved: function(event) {
-      console.log('itemMoved', event);
-      return true;
-    },
-    orderChanged: function(event) {
-      console.log('orderChanged', event);
-      return true;
-    }
-  };
+  $scope.board = BoardUtils.board;
+  $scope.issueSortOptions = BoardUtils.issueSortOptions;
 
   $scope.getIssueList = function(token) {
     issueList = GitHubUtils.getIssues($scope.repo, token);
@@ -57,8 +32,7 @@ app.controller("IndexController", function($scope, $route, $filter, $firebase, G
   };
 
   ref = new Firebase("https://optionals.firebaseio.com/");
-  sync = $firebase(ref);
-  $scope.data = sync.$asObject();
+
   $scope.login = function() {
     return ref.authWithOAuthPopup('github', function(error, authData) {
       if (error) {
