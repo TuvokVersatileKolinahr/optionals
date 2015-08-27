@@ -1,5 +1,6 @@
 Optionals
 =========
+[![Build Status](https://travis-ci.org/TuvokVersatileKolinahr/optionals.svg?branch=master)](https://travis-ci.org/TuvokVersatileKolinahr/optionals)
 
 This is optional, also called an optional illusion. And also something that is but might not be.
 
